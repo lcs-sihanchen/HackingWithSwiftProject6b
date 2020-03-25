@@ -9,7 +9,7 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -56,20 +56,30 @@ class ViewController: UIViewController {
         view.addSubview(label5)
         
         let viewsDictionary = ["label1": label1, "label2": label2,
-        "label3": label3, "label4": label4, "label5": label5]
+                               "label3": label3, "label4": label4, "label5": label5]
+        // loops over each of the five labels
+        //setting them to have the same width as our main view and to have a height of exactly 88 points
+        for label in [label1, label2, label3, label4, label5] {
+           label.widthAnchor.constraint(equalTo:
+        view.widthAnchor).isActive = true
+           label.heightAnchor.constraint(equalToConstant: 88).isActive
+        = true }
         
-        for label in viewsDictionary.keys {
+//        for label in viewsDictionary.keys {
             
-        // addConstraints: add an array of constraints in the view, it's an array because Visual format language can generate multiple constraints at a time
-        // NSLayoutConstraint.constraints(withVisualFormat:): auto layout converts visual format language into an array of constraints
-        // metrics: customize the meaning of VFL
-        // "H:|[label1]|" --- VFL: H means horizontal, | means the edge of the view
-        // Visual formatt language can't be accessed with the name of the label, that's why we need a views dictionary
-        // Each of our labels should stretch edge-to-edge in our view
-        // However now the labels are still overlapped
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[\(label)]|",
-            options: [], metrics: nil, views: viewsDictionary))
-            
+            // addConstraints: add an array of constraints in the view, it's an array because Visual format language can generate multiple constraints at a time
+            // NSLayoutConstraint.constraints(withVisualFormat:): auto layout converts visual format language into an array of constraints
+            // metrics: customize the meaning of VFL
+            // "H:|[label1]|" --- VFL: H means horizontal, | means the edge of the view
+            // Visual formatt language can't be accessed with the name of the label, that's why we need a views dictionary
+            // Each of our labels should stretch edge-to-edge in our view
+            // However now the labels are still overlapped
+//            view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "H:|[\(label)]|",
+//                options: [], metrics: nil, views: viewsDictionary))
+//
+//
+//        }
+        
         // V means vetical
         // - means space, one "-" is 10 points of space by default
         // No longer overlapped
@@ -77,15 +87,12 @@ class ViewController: UIViewController {
         // Use metrics to define the height of the label
         // The method here can't work properly without priority when the screen is rotated
         // Priority is a number between 1 - 1000, as long as it's not 1000(absoltely required), it will auto shrink the label for us
-            let metrics = ["labelHeight": 88]
-        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[label1(labelHeight@999)]-[label2(label1)]-[label3(label1)]-[label4(label1)]-[label5(label1)]-(>=10)-|",
-        options: [], metrics: metrics, views: viewsDictionary))
-        }
-        
+//        let metrics = ["labelHeight": 88]
+//        view.addConstraints(NSLayoutConstraint.constraints(withVisualFormat: "V:|[label1(labelHeight@999)]-[label2(label1)]-[label3(label1)]-[label4(label1)]-[label5(label1)]-(>=10)-|", options: [], metrics: metrics, views: viewsDictionary))
         
         
     }
-
-
+    
+    
 }
 
