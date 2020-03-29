@@ -65,12 +65,12 @@ class ViewController: UIViewController {
         
         for label in [label1, label2, label3, label4, label5] {
             // Width equals the width of the view
-//            label.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 0).isActive = true
-//            label.trailingAnchor.constraint(equalToSystemSpacingAfter: view.trailingAnchor, multiplier: 1).isActive = true
+            label.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 0).isActive = true
+            label.trailingAnchor.constraint(equalToSystemSpacingAfter: view.safeAreaLayoutGuide.trailingAnchor, multiplier: 1).isActive = true
             
-            label.widthAnchor.constraint(equalTo:view.widthAnchor).isActive = true
+//            label.widthAnchor.constraint(equalTo:view.widthAnchor).isActive = true
            // height of the label is still 88
-           label.heightAnchor.constraint(equalToConstant: 88).isActive = true
+            label.heightAnchor.constraint(equalToConstant: 88).isActive = true
             
             // Height constant to determine the vertical space between the labels
             if let previous = previous {
