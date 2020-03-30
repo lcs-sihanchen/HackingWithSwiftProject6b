@@ -70,7 +70,10 @@ class ViewController: UIViewController {
             
 //            label.widthAnchor.constraint(equalTo:view.widthAnchor).isActive = true
            // height of the label is still 88
-            label.heightAnchor.constraint(equalToConstant: 88).isActive = true
+            
+            // Set the height to 1/5 of the view height
+            label.heightAnchor.constraint(equalTo: view.safeAreaLayoutGuide.heightAnchor, multiplier: 0.2).isActive = true
+
             
             // Height constant to determine the vertical space between the labels
             if let previous = previous {
