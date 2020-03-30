@@ -77,7 +77,7 @@ class ViewController: UIViewController {
             
             // Height constant to determine the vertical space between the labels
             if let previous = previous {
-            // 10 points between two labels vertically
+            // 10 points between two labels vertically 
                 label.topAnchor.constraint(equalTo: previous.bottomAnchor, constant: 10).isActive = true
             } else {
                 // if this is the first label, then:
